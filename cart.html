@@ -33,18 +33,15 @@
   let total = 0;
 
   cart.forEach(item => {
-    // عرض كل عنصر في القائمة
     const li = document.createElement('li');
     li.textContent = `${item.name} - $${item.price}`;
     cartList.appendChild(li);
-
-    // حساب total
     total += item.price;
   });
 
   document.getElementById('total').textContent = `Total: $${total}`;
  
-  localStorage.setItem('total', total); // حفظ التوتال في localStorage
+  localStorage.setItem('total', total);
    function confirmOrder() {
       const name = document.getElementById("name").value;
       const address = document.getElementById("address").value;
@@ -56,8 +53,8 @@
            return;
       }
       alert("your order has been confirmed✅");
-       localStorage.removeItem("cart");  // يمسح الكارت
-    localStorage.removeItem("total"); // يمسح التوتال
+       localStorage.removeItem("cart");
+    localStorage.removeItem("total");
       location.reload();
    }
 </script>
