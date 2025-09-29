@@ -1,0 +1,133 @@
+.pizzaimage {
+  display: flex; /* يخلي الصورة والمعلومات جنب بعض */
+  align-items: center; /* توسيط عمودي */
+  gap: 20px; /* مسافة بين الصورة والمعلومات */
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+}
+
+.pinfo h3, .pinfo p {
+  margin: 5px 0; /* تخفيف المسافة بين النوع والسعر */
+}
+
+.pinfo button {
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.Burgerimage {
+  display: flex; /* يخلي الصورة والمعلومات جنب بعض */
+  align-items: center; /* توسيط عمودي */
+  gap: 20px; /* مسافة بين الصورة والمعلومات */
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+}
+
+.binfo h3, .binfo p {
+  margin: 5px 0; /* تخفيف المسافة بين النوع والسعر */
+}
+
+.binfo button {
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.DRINKSimage {
+  display: flex; /* يخلي الصورة والمعلومات جنب بعض */
+  align-items: center; /* توسيط عمودي */
+  gap: 20px; /* مسافة بين الصورة والمعلومات */
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+}
+
+.dinfo h3, .dinfo p {
+  margin: 5px 0; /* تخفيف المسافة بين النوع والسعر */
+}
+
+.dinfo button {
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+/* الصفحة الرئيسية + الكارت */
+body.main-page,
+body.cart-page {
+    background-color: black;
+    color: white;
+}
+
+h1, h2, h3 {
+    color: gold; /* النصوص كلها جولد */
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.menucategories {
+    background-color: #222;
+    border-radius: 15px;
+    padding: 20px;
+    width: 250px;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+    transition: transform 0.3s;
+}
+
+.menucategories:hover {
+    transform: scale(1.05);
+}
+
+.menucategories h3 {
+    color: white;
+    font-size: 1.5em;
+    margin: 10px 0;
+}
+
+.menucategories p {
+    color: #ccc;
+    margin-bottom: 15px;
+}
+
+/* باقي الصفحات: بيتزا، برجر، درينكس */
+body:not(.main-page):not(.cart-page) {
+    background: linear-gradient(to bottom, #000000, #333333, #666666, #999999);
+    color: white; /* كل النصوص تكون باينة */
+}
+
+h1, h2, h3 {
+    color: gold; /* يفضل جولد في كل الصفحات */
+}
+
+/* الزرار */
+button {
+    background-color: crimson;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: gold;
+    color: black;
+}
+
+a {
+    text-decoration: none;
+}
+
+.go-to-cart {
+    margin-top: 30px; /* نزّليه لتحت 30px */
+}

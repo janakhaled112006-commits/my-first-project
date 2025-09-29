@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burger MENU</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Welcome to ZEW's Burger MENU</h1>
+    <p>Here you can find all you want to eat.</p>
+    <div class="Burger menu">
+        <h2>Our Burger Selection</h2>
+    </div>
+    <div class="Burgerimage">
+        <img src="https://www.sligro.nl/content/dam/webshop/sligro/marketing/sligro/thema/maandmenu/recept_classic_burger_folder_7_100734_776753_157720_maandmenu.jpg" alt="Classic Burger" width="200">
+        <div class="binfo">
+            <h3>Classic Burger</h3>
+            <p>120 EGP</p>
+            <p>Combo 150 EGP</p>
+            <button onclick="addToCart('Classic Burger', 120)">Add to Cart</button>
+            <button onclick="addToCart('Classic Burger', 150)">make it combo</button>
+        </div>
+    </div>
+    <div class="Burgerimage">
+        <img src="https://as2.ftcdn.net/v2/jpg/06/13/62/43/1000_F_613624374_P9KS0MMH0FYGrGFLaAmwPUf1uFlZThUI.jpg" alt="chiken Burger" width="200">
+        <div class="binfo">
+            <h3>Chiken Burger</h3>
+            <p>160 EGP</p>
+            <p>Combo 190 EGP</p>
+            <button onclick="addToCart('Chiken Burger', 160)">Add to Cart</button>
+            <button onclick="addToCart('Chiken Burger', 190)">make it combo</button>
+        </div>
+    </div>
+    <div class="Burgerimage">
+        <img src="https://img.freepik.com/premium-photo/burger-with-extra-cheese_862330-14549.jpg" alt="Cheese Burger" width="200">
+        <div class="binfo">
+            <h3>Cheese Burger</h3>
+            <p>150 EGP</p>
+            <p>Combo 180 EGP</p>
+            <button onclick="addToCart('Cheese Burger', 150)">Add to Cart</button>
+            <button onclick="addToCart('Cheese Burger', 180)">make it combo</button>
+        </div>
+    </div>
+    <div class="Burgerimage">
+        <img src="https://www.recipetocook.co.uk/wp-content/uploads/2024/04/mushroom-burger-recipe.jpg" alt="Mashroom Burger" width="200">
+        <div class="binfo">
+            <h3>Mashroom Burger</h3>
+            <p>170 EGP</p>
+            <p>Combo 200 EGP</p>
+            <button onclick="addToCart('Mashroom Burger', 170)">Add to Cart</button>
+            <button onclick="addToCart('Mashroom Burger', 200)">make it combo</button>
+        </div>
+    </div>
+    <div class="cart">
+        <h2>Your Cart</h2>
+        <ul id="cartItems"></ul>
+        <p>Total: <span id="totalPrice">0</span> EGP</p>
+    <a href="firsttry.html">
+    <button>Back to Main Menu
+    </button>
+    </a>
+    <a href="cart.html">
+    <button>Go to Cart
+    </button>
+    </a>
+    <ul id="cart"></ul>
+  <p id="total">Total: $0</p>
+
+   <script>
+function addToCart(name, price) {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  cart.push({ name, price });
+  localStorage.setItem('cart', JSON.stringify(cart));
+  updateCartDisplay();
+}
+
+function updateCartDisplay() {
+  const cartList = document.getElementById('cart');
+  cartList.innerHTML = '';
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  let total = 0;
+  cart.forEach(item => {
+    const li = document.createElement('li');
+    li.textContent = `${item.name} - $${item.price}`;
+    cartList.appendChild(li);
+    total += item.price;
+  });
+  document.getElementById('total').textContent = `Total: $${total}`;
+}
+
+window.onload = updateCartDisplay;
+</script>
+</body>
+</html>

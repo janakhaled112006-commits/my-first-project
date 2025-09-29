@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DRINKS MENU</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Welcome to ZEW's DRINKS MENU</h1>
+    <p>Here you can find all you want to drink.</p>
+    <div class="DRINKS menu">
+        <h2>Our DRINKS Selection</h2>
+    </div>
+    <div class="DRINKSimage">
+        <img src="https://cf.ltkcdn.net/www/images/std/355562-800x534-cans-of-different-brands-of-sodas-174249584.jpg" alt="Soft DRINKS" width="200">
+        <div class="dinfo">
+            <h3>Soft DRINKS</h3>
+            <p>25 EGP</p>
+            <button onclick="addToCart('Pepsi', 25)">Pepsi</button>
+            <button onclick="addToCart('Coca Cola', 25)">Coca Cola</button>
+            <button onclick="addToCart('Sprite', 25)">Sprite</button>
+            <button onclick="addToCart('Fanta', 25)">Fanta</button>
+            <button onclick="addToCart('Diet Pepsi', 25)">Pepsi</button>
+            <button onclick="addToCart('Diet Coca Cola', 25)">Coca Cola</button>
+            <button onclick="addToCart('Diet Sprite', 25)">Sprite</button>
+        </div>
+    </div>
+    <div class="DRINKSimage">
+        <img src="https://img.freepik.com/premium-photo/hot-drink_421632-29283.jpg" alt="Hot DRINKS" width="200">
+        <div class="dinfo">
+            <h3>Hot DRINKS</h3>
+            <p>55 EGP</p>
+            <button onclick="addToCart('Coffee Hot DRINKS', 55)">Coffee</button>
+            <button onclick="addToCart('Tea Hot DRINKS', 55)">Tea</button>
+            <button onclick="addToCart('Hot Chocolate DRINKS', 55)">Hot Chocolate</button>
+            <button onclick="addToCart('Espresso Hot DRINKS', 55)">Espresso</button>
+            <button onclick="addToCart('Cappuccino Hot DRINKS', 55)">Cappuccino</button>
+            <button onclick="addToCart('Latte Hot DRINKS', 55)">Latte</button>
+        </div>
+    </div>
+    <div class="DRINKSimage">
+        <img src="https://40aprons.com/wp-content/uploads/2018/03/iced-dirty-chai-vegan-paleo-sugar-free-7-514x771.jpg" alt="Ice Coffee DRINKS" width="200">
+        <div class="dinfo">
+            <h3>Ice Coffee DRINKS</h3>
+            <p>75 EGP</p>
+            <p>with Ice Cream 95 EGP</p>
+            <button onclick="addToCart('Ice Coffee DRINKS', 75)">Ice Coffee</button>
+            <button onclick="addToCart('Ice Coffee DRINKS', 75)">Frappeh caramel</button>
+            <button onclick="addToCart('Ice Coffee DRINKS', 75)">Frappeh Mocha</button>
+            <button onclick="addToCart('Ice Coffee DRINKS', 95)">Ice Coffee with Ice Cream</button>
+            <button onclick="addToCart('Ice Coffee DRINKS', 95)">Ice Coffee with Ice Cream caramel</button>
+            <button onclick="addToCart('Ice Coffee DRINKS', 95)">Ice Coffee with Ice Cream Mocha</button>
+        </div>
+    </div>
+    <div class="cart">
+        <h2>Your Cart</h2>
+        <ul id="cartItems"></ul>
+        <p>Total: <span id="totalPrice">0</span> EGP</p>
+    <a href="firsttry.html">
+    <button>Back to Main Menu
+    </button>
+    </a>
+    <a href="cart.html">
+    <button>Go to Cart
+    </button>
+    </a>
+    <ul id="cart"></ul>
+  <p id="total">Total: $0</p>
+  <script>
+function addToCart(name, price) {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  cart.push({ name, price });
+  localStorage.setItem('cart', JSON.stringify(cart));
+  updateCartDisplay();
+}
+
+function updateCartDisplay() {
+  const cartList = document.getElementById('cart');
+  cartList.innerHTML = '';
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  let total = 0;
+  cart.forEach(item => {
+    const li = document.createElement('li');
+    li.textContent = `${item.name} - $${item.price}`;
+    cartList.appendChild(li);
+    total += item.price;
+  });
+  document.getElementById('total').textContent = `Total: $${total}`;
+}
+
+window.onload = updateCartDisplay;
+</script>
+
+</body>
+</html>
